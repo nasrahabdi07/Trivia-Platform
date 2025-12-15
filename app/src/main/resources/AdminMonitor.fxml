@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: #18181b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.AdminMonitorController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <Label text="Trivia Server Monitor" textFill="#f4f4f5">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <GridPane hgap="20.0" vgap="20.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #27272a; -fx-background-radius: 8; -fx-border-color: #3f3f46; -fx-border-radius: 8;">
+               <children>
+                  <Label text="Registered Users" textFill="#a1a1aa">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="regUsersLabel" text="0" textFill="#e4e4e7">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #27272a; -fx-background-radius: 8; -fx-border-color: #3f3f46; -fx-border-radius: 8;" GridPane.columnIndex="1">
+               <children>
+                  <Label text="Online Players" textFill="#a1a1aa">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="onlineUsersLabel" text="0" textFill="#22d3ee">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #27272a; -fx-background-radius: 8; -fx-border-color: #3f3f46; -fx-border-radius: 8;" GridPane.columnIndex="2">
+               <children>
+                  <Label text="Network Traffic" textFill="#a1a1aa">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="networkLabel" text="0 KB/s" textFill="#f59e0b">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #27272a; -fx-background-radius: 8; -fx-border-color: #3f3f46; -fx-border-radius: 8;" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Memory Usage" textFill="#a1a1aa">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ProgressBar fx:id="memoryBar" prefWidth="200.0" progress="0.0" style="-fx-accent: #f59e0b;" />
+                  <Label fx:id="memoryLabel" text="0 / 0 MB" textFill="#e4e4e7">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #27272a; -fx-background-radius: 8; -fx-border-color: #3f3f46; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label text="CPU Usage" textFill="#a1a1aa">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ProgressBar fx:id="cpuBar" prefWidth="200.0" progress="0.0" style="-fx-accent: #f59e0b;" />
+                  <Label fx:id="cpuLabel" text="0%" textFill="#e4e4e7">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #27272a; -fx-background-radius: 8; -fx-border-color: #3f3f46; -fx-border-radius: 8;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Status" textFill="#a1a1aa">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="statusLabel" text="Connecting..." textFill="#f59e0b">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+      <LineChart fx:id="activityChart" createSymbols="false" legendVisible="true" style="-fx-background-color: #27272a; -fx-background-radius: 8; -fx-border-color: #3f3f46; -fx-border-radius: 8;" title="Real-time Activity" VBox.vgrow="ALWAYS">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+        </yAxis>
+      </LineChart>
+   </children>
+</VBox>

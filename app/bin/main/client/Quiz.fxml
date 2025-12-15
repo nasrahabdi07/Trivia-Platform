@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Region?>
+
+<HBox spacing="20" alignment="CENTER" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="client.QuizController" styleClass="container">
+    
+    <!-- Main Game Area -->
+    <VBox spacing="20" alignment="CENTER" HBox.hgrow="ALWAYS">
+        
+        <!-- Top Stats Bar -->
+        <HBox spacing="30" alignment="CENTER">
+            <VBox spacing="5" alignment="CENTER" styleClass="stat-card" style="-fx-padding: 12px 24px;">
+                <Label text="⏱" style="-fx-font-size: 20px;"/>
+                <Label fx:id="timerLabel" text="15s" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            </VBox>
+            
+            <VBox spacing="5" alignment="CENTER" styleClass="stat-card" style="-fx-padding: 12px 24px;">
+                <Label text="💯" style="-fx-font-size: 20px;"/>
+                <Label fx:id="scoreLabel" text="Score: 0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            </VBox>
+            
+            <VBox spacing="5" alignment="CENTER" styleClass="stat-card" style="-fx-padding: 12px 24px;">
+                <Label text="🔥" style="-fx-font-size: 20px;"/>
+                <Label fx:id="streakLabel" text="Streak: 0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #fbbf24;"/>
+            </VBox>
+        </HBox>
+        
+        <!-- Progress Bar -->
+        <ProgressBar fx:id="progressBar" prefWidth="600" styleClass="progress-bar" progress="0"/>
+        
+        <!-- Question -->
+        <VBox spacing="10" alignment="CENTER" styleClass="room-info-card" maxWidth="700">
+            <padding>
+                <Insets top="20" right="30" bottom="20" left="30"/>
+            </padding>
+            <Label fx:id="questionLabel" text="Question will appear here" styleClass="title" wrapText="true" style="-fx-font-size: 22px;"/>
+        </VBox>
+        
+        <!-- Points Earned Notification -->
+        <Label fx:id="pointsLabel" text="" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #4ade80;"/>
+        
+        <!-- Options -->
+        <VBox spacing="15" alignment="CENTER">
+            <Button fx:id="optionA" text="Option A" onAction="#selectA" prefWidth="600" styleClass="option"/>
+            <Button fx:id="optionB" text="Option B" onAction="#selectB" prefWidth="600" styleClass="option"/>
+            <Button fx:id="optionC" text="Option C" onAction="#selectC" prefWidth="600" styleClass="option"/>
+            <Button fx:id="optionD" text="Option D" onAction="#selectD" prefWidth="600" styleClass="option"/>
+        </VBox>
+    </VBox>
+    
+    <!-- Chat Panel -->
+    <VBox spacing="10" alignment="TOP_LEFT" styleClass="room-info-card" prefWidth="300" HBox.hgrow="NEVER">
+        <padding>
+            <Insets top="15" right="15" bottom="15" left="15"/>
+        </padding>
+        
+        <Label text="💬 Chat" styleClass="subtitle" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+        
+        <ListView fx:id="chatListView" prefHeight="400" styleClass="list-view" VBox.vgrow="ALWAYS"/>
+        
+        <HBox spacing="10" alignment="CENTER">
+            <TextField fx:id="chatTextField" promptText="Type a message..." styleClass="text-field" HBox.hgrow="ALWAYS"/>
+            <Button text="Send" onAction="#sendChat" styleClass="cta-button" style="-fx-padding: 8px 16px;"/>
+        </HBox>
+    </VBox>
+</HBox>
+

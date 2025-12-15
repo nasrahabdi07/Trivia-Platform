@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox spacing="20" alignment="CENTER" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="client.GameRoomController" styleClass="container">
+    <Label fx:id="roomLabel" text="Waiting for players..." styleClass="title"/>
+    <Button text="Start Game" onAction="#startGame" maxWidth="200"/>
+</VBox>
+

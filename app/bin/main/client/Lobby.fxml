@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="client.LobbyController" styleClass="root" VBox.vgrow="ALWAYS">
+    
+    <!-- Navbar -->
+    <HBox spacing="20" alignment="CENTER_LEFT" styleClass="navbar">
+        <padding>
+            <Insets top="16" right="24" bottom="16" left="24"/>
+        </padding>
+        <Label text="🏆 TRIVIA ARENA" styleClass="title" />
+        <Region HBox.hgrow="ALWAYS"/>
+        <HBox spacing="12" alignment="CENTER">
+            <Button text="🏠 Home" onAction="#goHome" styleClass="nav-button" />
+            <Button text="⚡ Play" styleClass="nav-button-active" />
+            <Button text="👤 Profile" onAction="#goProfile" styleClass="nav-button" />
+            <Button text="🚪 Login" onAction="#logout" styleClass="nav-button" />
+        </HBox>
+    </HBox>
+    
+    <!-- Main Content with ScrollPane -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background: transparent; -fx-background-color: transparent;">
+        <VBox spacing="30" alignment="TOP_CENTER" styleClass="container">
+            <padding>
+                <Insets top="40" right="60" bottom="40" left="60"/>
+            </padding>
+        
+        <!-- Header -->
+        <HBox spacing="20" alignment="CENTER_LEFT">
+            <Button text="← Back" onAction="#goBack" styleClass="nav-button" />
+            <VBox spacing="5">
+                <Label text="Game Lobby" styleClass="hero-title" style="-fx-font-size: 42px;"/>
+                <Label text="Choose a room or create your own" styleClass="subtitle" />
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="🎮 Play Solo" onAction="#playSolo" styleClass="success-button" />
+            <Button text="+ Create Room" onAction="#createRoom" styleClass="cta-button" />
+        </HBox>
+        
+        <!-- Private Room Code Section -->
+        <VBox spacing="15" alignment="CENTER_LEFT" styleClass="room-info-card" maxWidth="850">
+            <VBox.margin>
+                <Insets top="10"/>
+            </VBox.margin>
+            <Label text="Have a room code?" styleClass="subtitle" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <TextField fx:id="roomCodeField" promptText="Enter 6-digit code" prefWidth="400" styleClass="text-field" />
+                <Button text="🔒 Join Private Room" onAction="#joinPrivateRoom" styleClass="cta-button" />
+            </HBox>
+        </VBox>
+        
+        <!-- Search and Filter -->
+        <HBox spacing="15" alignment="CENTER_LEFT" maxWidth="850">
+            <TextField fx:id="searchRoomsField" promptText="🔍 Search rooms..." prefWidth="400" styleClass="text-field" />
+            <Button text="All" onAction="#filterAll" styleClass="secondary-button" style="-fx-padding: 8px 20px;"/>
+            <Button text="General" onAction="#filterGeneral" styleClass="nav-button" style="-fx-padding: 8px 20px;"/>
+            <Button text="Science" onAction="#filterScience" styleClass="nav-button" style="-fx-padding: 8px 20px;"/>
+            <Button text="History" onAction="#filterHistory" styleClass="nav-button" style="-fx-padding: 8px 20px;"/>
+            <Button text="Sports" onAction="#filterSports" styleClass="nav-button" style="-fx-padding: 8px 20px;"/>
+        </HBox>
+        
+        <!-- Rooms List or Empty State -->
+        <VBox fx:id="roomsContainer" spacing="15" alignment="CENTER" prefWidth="850" prefHeight="300" styleClass="room-info-card">
+            <VBox spacing="20" alignment="CENTER">
+                <Label text="👥" style="-fx-font-size: 64px;"/>
+                <Label text="No rooms available" styleClass="title" style="-fx-font-size: 28px;"/>
+                <Label text="Be the first to create a game!" styleClass="subtitle" style="-fx-font-size: 16px;"/>
+                <Button text="+ Create Room" onAction="#createRoom" styleClass="cta-button" />
+            </VBox>
+        </VBox>
+        
+        </VBox>
+    </ScrollPane>
+</VBox>
+

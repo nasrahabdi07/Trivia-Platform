@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox spacing="0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="client.ProfileController" styleClass="root">
+    
+    <!-- Navbar -->
+    <HBox spacing="20" alignment="CENTER_LEFT" styleClass="navbar">
+        <padding>
+            <Insets top="16" right="24" bottom="16" left="24"/>
+        </padding>
+        <Label text="🏆 TRIVIA ARENA" styleClass="title" />
+        <Region HBox.hgrow="ALWAYS"/>
+        <HBox spacing="12" alignment="CENTER">
+            <Button text="🏠 Home" onAction="#goHome" styleClass="nav-button" />
+            <Button text="⚡ Play" onAction="#goPlay" styleClass="nav-button" />
+            <Button text="👤 Profile" styleClass="nav-button-active" />
+            <Button text="🚪 Login" onAction="#logout" styleClass="nav-button" />
+        </HBox>
+    </HBox>
+    
+    <!-- Main Content with ScrollPane -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background: transparent; -fx-background-color: transparent;">
+        <VBox spacing="30" alignment="TOP_CENTER" styleClass="container">
+            <padding>
+                <Insets top="40" right="60" bottom="40" left="60"/>
+            </padding>
+            
+            <!-- Back Button -->
+            <HBox alignment="CENTER_LEFT">
+                <Button text="← Back" onAction="#goBack" styleClass="nav-button" />
+            </HBox>
+            
+            <!-- Profile Header -->
+            <VBox spacing="15" alignment="CENTER">
+                <!-- Avatar Circle -->
+                <VBox alignment="CENTER" styleClass="avatar" style="-fx-pref-width: 120px; -fx-pref-height: 120px;">
+                    <Label fx:id="avatarLabel" text="U" style="-fx-font-size: 48px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                </VBox>
+                
+                <!-- Username -->
+                <Label fx:id="usernameLabel" text="Username" styleClass="hero-title" style="-fx-font-size: 36px;"/>
+                
+                <!-- Email (optional) -->
+                <Label fx:id="emailLabel" text="user@example.com" styleClass="subtitle" style="-fx-font-size: 14px;"/>
+            </VBox>
+            
+            <!-- Stats Cards -->
+            <HBox spacing="20" alignment="CENTER">
+                <!-- Wins -->
+                <VBox spacing="10" alignment="CENTER" styleClass="stat-card" style="-fx-pref-width: 200px; -fx-pref-height: 120px;">
+                    <Label text="🏆" style="-fx-font-size: 32px;"/>
+                    <Label fx:id="winsLabel" text="0" styleClass="score-display" style="-fx-font-size: 36px;"/>
+                    <Label text="Wins" styleClass="subtitle"/>
+                </VBox>
+                
+                <!-- Games Played -->
+                <VBox spacing="10" alignment="CENTER" styleClass="stat-card" style="-fx-pref-width: 200px; -fx-pref-height: 120px;">
+                    <Label text="🎯" style="-fx-font-size: 32px;"/>
+                    <Label fx:id="gamesPlayedLabel" text="2" styleClass="score-display" style="-fx-font-size: 36px;"/>
+                    <Label text="Games Played" styleClass="subtitle"/>
+                </VBox>
+                
+                <!-- Accuracy -->
+                <VBox spacing="10" alignment="CENTER" styleClass="stat-card" style="-fx-pref-width: 200px; -fx-pref-height: 120px;">
+                    <Label text="⚡" style="-fx-font-size: 32px;"/>
+                    <Label fx:id="accuracyLabel" text="0.0%" styleClass="score-display" style="-fx-font-size: 36px;"/>
+                    <Label text="Accuracy" styleClass="subtitle"/>
+                </VBox>
+                
+                <!-- Avg Score -->
+                <VBox spacing="10" alignment="CENTER" styleClass="stat-card" style="-fx-pref-width: 200px; -fx-pref-height: 120px;">
+                    <Label text="📈" style="-fx-font-size: 32px;"/>
+                    <Label fx:id="avgScoreLabel" text="0" styleClass="score-display" style="-fx-font-size: 36px;"/>
+                    <Label text="Avg Score" styleClass="subtitle"/>
+                </VBox>
+            </HBox>
+            
+            <!-- Career Stats Section -->
+            <VBox spacing="20" alignment="CENTER_LEFT" styleClass="room-info-card" maxWidth="850">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="🏅" style="-fx-font-size: 20px;"/>
+                    <Label text="Career Stats" styleClass="title" style="-fx-font-size: 24px;"/>
+                </HBox>
+                
+                <!-- Total Points -->
+                <HBox spacing="20" alignment="CENTER_LEFT">
+                    <Label text="Total Points" styleClass="subtitle" style="-fx-font-size: 16px; -fx-pref-width: 200px;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="totalPointsLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                </HBox>
+                
+                <!-- Correct Answers -->
+                <HBox spacing="20" alignment="CENTER_LEFT">
+                    <Label text="Correct Answers" styleClass="subtitle" style="-fx-font-size: 16px; -fx-pref-width: 200px;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="correctAnswersLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4ade80;"/>
+                </HBox>
+                
+                <!-- Games Hosted -->
+                <HBox spacing="20" alignment="CENTER_LEFT">
+                    <Label text="Games Hosted" styleClass="subtitle" style="-fx-font-size: 16px; -fx-pref-width: 200px;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="gamesHostedLabel" text="1" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #60a5fa;"/>
+                </HBox>
+            </VBox>
+            
+            <!-- Recent Games Section -->
+            <VBox spacing="20" alignment="CENTER_LEFT" styleClass="room-info-card" maxWidth="850">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="🕐" style="-fx-font-size: 20px;"/>
+                    <Label text="Recent Games" styleClass="title" style="-fx-font-size: 24px;"/>
+                </HBox>
+                
+                <!-- Game Entry 1 -->
+                <HBox spacing="20" alignment="CENTER_LEFT" styleClass="leaderboard-entry">
+                    <Label text="🏅" style="-fx-font-size: 24px;"/>
+                    <VBox spacing="5">
+                        <Label text="Game #2" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                        <Label text="0 correct    5.0s avg" styleClass="subtitle" style="-fx-font-size: 12px;"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <VBox alignment="CENTER_RIGHT">
+                        <Label text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                        <Label text="points" styleClass="subtitle" style="-fx-font-size: 12px;"/>
+                    </VBox>
+                </HBox>
+                
+                <!-- Game Entry 2 -->
+                <HBox spacing="20" alignment="CENTER_LEFT" styleClass="leaderboard-entry">
+                    <Label text="🏅" style="-fx-font-size: 24px;"/>
+                    <VBox spacing="5">
+                        <Label text="Game #1" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                        <Label text="0 correct    0.0s avg" styleClass="subtitle" style="-fx-font-size: 12px;"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <VBox alignment="CENTER_RIGHT">
+                        <Label text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                        <Label text="points" styleClass="subtitle" style="-fx-font-size: 12px;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+            
+        </VBox>
+    </ScrollPane>
+</VBox>

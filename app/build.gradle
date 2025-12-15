@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = '22'
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+// Application configuration removed - using explicit JavaExec tasks below
+
+dependencies {
+    // JavaFX dependencies are handled by the javafx plugin
+}
+
+// Removed application plugin configuration; using explicit JavaExec tasks below
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+task runServer(type: JavaExec) {
+    group = 'application'
+    description = 'Runs the Trivia Server'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'server.TriviaServer'
+}
+
+task runClient(type: JavaExec) {
+    group = 'application'
+    description = 'Runs the Trivia Client'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'client.ClientMain'
+    jvmArgs = [
+        '--module-path', classpath.asPath,
+        '--add-modules', 'javafx.controls,javafx.fxml'
+    ]
+}
+
+task runMonitor(type: JavaExec) {
+    group = 'application'
+    description = 'Runs the Admin Monitor'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'admin.AdminMonitor'
+    jvmArgs = [
+        '--module-path', classpath.asPath,
+        '--add-modules', 'javafx.controls,javafx.fxml'
+    ]
+}

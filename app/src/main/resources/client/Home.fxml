@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+
+<VBox spacing="30" alignment="CENTER" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="client.HomeController" styleClass="container">
+    <!-- Main Content with ScrollPane -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background: transparent; -fx-background-color: transparent;">
+        <VBox spacing="30" alignment="CENTER" styleClass="container">
+            <HBox spacing="20" alignment="CENTER" styleClass="navbar">
+                <Label text="TRIVIA ARENA" styleClass="title" />
+                <HBox spacing="12" alignment="CENTER">
+                    <Button text="Home" onAction="#joinGame" styleClass="nav-button-active" />
+                    <Button text="Play" onAction="#goPlay" />
+                    <Button text="Profile" onAction="#goProfile" />
+                    <Button text="Login" onAction="#logout" />
+                </HBox>
+            </HBox>
+            <Label text="Next-Gen Trivia Experience" styleClass="subtitle" />
+            <Label text="TRIVIA ARENA" styleClass="hero-title" />
+            <Label fx:id="tagline" text="Enter the ultimate multiplayer trivia battleground. Challenge players worldwide, test your knowledge, and dominate the leaderboard." wrapText="true" />
+            <HBox spacing="16" alignment="CENTER">
+                <Button text="Join Game" onAction="#joinGame" styleClass="cta-button" />
+                <Button text="Start Playing Now" onAction="#goPlay" />
+            </HBox>
+            <HBox spacing="20" alignment="CENTER">
+                <Label text="Multiplayer Action" styleClass="feature-card" />
+                <Label text="Timed Challenges" styleClass="feature-card" />
+                <Label text="Multiple Categories" styleClass="feature-card" />
+                <Label text="Live Leaderboard" styleClass="feature-card" />
+            </HBox>
+        </VBox>
+    </ScrollPane>
+</VBox>
