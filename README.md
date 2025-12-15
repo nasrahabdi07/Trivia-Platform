@@ -85,12 +85,6 @@ Launch the admin dashboard to view server stats.
 
 ---
 
-## 📸 Screenshots
-
-*(Add screenshots of your application here: Login Screen, Game Room, Admin Dashboard)*
-
----
-
 ## 📝 Configuration
 
 - **Port**: `5050` (Defined in `TriviaServer.java`)
