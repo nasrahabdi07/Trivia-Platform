@@ -91,8 +91,3 @@ Launch the admin dashboard to view server stats.
 - **Admin Secret**: `SuperSecretAdmin2025` (Required for Admin Monitor authentication)
 
 ---
-
-## 👨‍💻 Author
-
-**Nasrah Abdi**  
-[GitHub Profile](https://github.com/nasrahabdi07)
