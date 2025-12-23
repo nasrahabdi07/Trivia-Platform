@@ -1,6 +1,6 @@
-# 🧠 Wireless Trivia Platform
+#  Wireless Trivia Platform
 
-## 🎯 Project Overview
+##  Project Overview
 
 **Wireless Trivia Platform** is a robust, multiplayer trivia game system built with **Java** and **JavaFX**. It features a concurrent server capable of handling multiple client connections, real-time game rooms, and a dedicated admin monitoring dashboard.
 
@@ -8,7 +8,7 @@ This project demonstrates advanced concepts in **network programming**, **multit
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 The system follows a clean **Client-Server** architecture with three main components:
 
@@ -36,17 +36,17 @@ The system follows a clean **Client-Server** architecture with three main compon
 
 ---
 
-## 🚀 Features
+##  Features
 
-- **✅ Multiplayer support**: Multiple users can play in different rooms simultaneously.
-- **✅ Real-time updates**: Game state and chat messages are pushed instantly to clients.
-- **✅ Admin Dashboard**: Live graphs and statistics for server monitoring.
-- **✅ Robust Networking**: Custom protocol design for client-server communication.
-- **✅ Dynamic UI**: polished JavaFX interfaces with animations.
+- ** Multiplayer support**: Multiple users can play in different rooms simultaneously.
+- ** Real-time updates**: Game state and chat messages are pushed instantly to clients.
+- ** Admin Dashboard**: Live graphs and statistics for server monitoring.
+- ** Robust Networking**: Custom protocol design for client-server communication.
+- ** Dynamic UI**: polished JavaFX interfaces with animations.
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Language**: Java 21
 - **GUI Framework**: JavaFX 22
@@ -56,7 +56,7 @@ The system follows a clean **Client-Server** architecture with three main compon
 
 ---
 
-## 💻 How to Run
+##  How to Run
 
 This project uses **Gradle** for build and execution. You can run all components from the terminal.
 
@@ -85,7 +85,7 @@ Launch the admin dashboard to view server stats.
 
 ---
 
-## 📝 Configuration
+##  Configuration
 
 - **Port**: `5050` (Defined in `TriviaServer.java`)
 - **Admin Secret**: `SuperSecretAdmin2025` (Required for Admin Monitor authentication)
